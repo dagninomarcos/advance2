@@ -20,6 +20,7 @@ else{
   	background-size: cover;	
   	background-position-y: center;
   	height: 890px;
+    width: 100%;
 		">
 	
 <?php include('navbar.php');?>

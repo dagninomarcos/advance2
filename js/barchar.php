@@ -1,10 +1,7 @@
 <script>
 <?php 
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-// variable de conexion de base de datos
-$mysqli = mysqli_connect("localhost", "root", "1234", "test_5s");
+include('config/db.php');
 
 // query a ejecutar
 $query =

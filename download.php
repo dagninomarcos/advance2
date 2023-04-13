@@ -7,7 +7,8 @@
   	background-repeat: no-repeat;
   	background-size: cover;	
   	background-position-y: center;
-  	height: 890px;
+  	  	height: 890px;
+    width: 100%;
 		">
 <?php include('navbar.php');?>
 <div class="main">

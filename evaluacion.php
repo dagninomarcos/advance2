@@ -59,7 +59,8 @@ table, td, th {
   	background-size: cover;	
   	background-position-y: center;
   	background-attachment: fixed;
-  	height: 800px;
+    height: 880px;
+    width: 100%;
 	">
 
 <?php include('navbar.php');?>
@@ -619,8 +620,29 @@ table, td, th {
  	<label class="letras_forma" for="Auditor">Auditor</label>
 	<select class="Opiciones" name="Auditor" id="Auditor" required>
 		<option value="">--Please choose an option--</option>
-		<option value="Rodrigo Gutierrez">Rodrigo Gutierrez</option>
-		<option value="Joselin Salazar">Joselin Salazar</option>
+    <option value="Yoselin Salazar ">Yoselin Salazar </option>
+    <option value="Enrique Ambriz">Enrique Ambriz</option>
+    <option value="Julio Saavedra">Julio Saavedra</option>
+    <option value="Marco Barajas">Marco Barajas</option>
+    <option value="Jaime Murillo">Jaime Murillo</option>
+    <option value="Arturo Melendrez ">Arturo Melendrez </option>
+    <option value="Gisel Carmona">Gisel Carmona</option>
+    <option value="Luis Aguillon">Luis Aguillon</option>
+    <option value="Arcadio Navarro">Arcadio Navarro</option>
+    <option value="Nestor German">Nestor German</option>
+    <option value="German Aguilar">German Aguilar</option>
+    <option value="Rafael Espinoza">Rafael Espinoza</option>
+    <option value="Manuel Flores ">Manuel Flores </option>
+    <option value="Octavio Hernandez">Octavio Hernandez</option>
+    <option value="Adrian Delgado">Adrian Delgado</option>
+    <option value="Rafael Rodriguez">Rafael Rodriguez</option>
+    <option value="Zaida Sanchez">Zaida Sanchez</option>
+    <option value="Edgardo Palero">Edgardo Palero</option>
+    <option value="Rodrigo Gutierrez">Rodrigo Gutierrez</option>
+    <option value="Andres Osorio">Andres Osorio</option>
+    <option value="Ramiro Garcia">Ramiro Garcia</option>
+    <option value="Sergio Godoy">Sergio Godoy</option>
+    <option value="Estefania Peña">Estefania Peña</option>
 	</select>
 	<label class="letras_forma" for="Area">Area</label>
 	<select class="Opiciones" name="Area" id="Area" required>

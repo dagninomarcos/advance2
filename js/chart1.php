@@ -3,8 +3,7 @@
 
 $mes=date('n');
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = mysqli_connect("localhost", "root", "1234", "test_5s");
+include('config/db.php');
 $query =
 "SELECT `C_Despejar`, `C_Organizar`, `C_Limpiar`, `C_Estandarizar`, `C_Disciplina`, `C_Seguridad` FROM test_5s.test_data_5s
 WHERE Area='$Area_Seleccionada' and month(convert(Fecha,date))='$mes' order by Fecha ASC;";
