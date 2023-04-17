@@ -44,7 +44,7 @@ $nombre_grafica_5 = 'Semana 5';
 // SUMA TOTAL DE CADA GRAFICA PARA EL COLOR
 
 for ($i=0; $i <= 5; $i++) { 
-  if (array_sum($data2[$i])>39) {
+  if (array_sum($data2[$i])>=39) {
     $color[$i]='rgba(106, 231, 93, 0.8)';//verde
     $color_letra[$i]='rgba(0, 148, 17, 0.8)';
 }else
@@ -62,7 +62,7 @@ for ($i=0; $i <= 5; $i++) {
 for ($i=0; $i <= 5; $i++) { 
   $sumatoria[$i]=array_sum($data2[$i]);
   $porcentaje[$i]=round((100*array_sum($data2[$i]))/43);
-  if (array_sum($data2[$i])>39) {
+  if (array_sum($data2[$i])>=39) {
   $color_numero[$i]='rgba(0, 255, 35, 0.3)'; // si es mayor a 39 entonces es verde
 
 }else
@@ -76,7 +76,7 @@ for ($i=0; $i <= 5; $i++) {
 
 
 for ($i=0; $i <= 5; $i++) { 
-  if (array_sum($data2[$i])>39) {
+  if (array_sum($data2[$i])>=39) {
     $color_letra[$i]='rgba(0, 148, 17, 0.8)';
 }else
   if(array_sum($data2[$i])==0){

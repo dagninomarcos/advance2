@@ -1,17 +1,25 @@
 
 <?php require('config/config.php')?>
+<?php include('config/db.php') ?>
+<?php
+$fecha_sistema=date("Y-m-d");
+$query ="CALL Colores('$fecha_sistema');";
+
+// ejectuar el query 
+$result = mysqli_query($mysqli, $query);
+
+// recuperar la informacion de la base de datos 
+$data2= mysqli_fetch_all($result,MYSQLI_ASSOC);
+// var_dump($data2);
+// liberar la variable donde se guerda la informacion 
+mysqli_free_result($result);
+
+// cerrar la conexion con la base de datos
+mysqli_close($mysqli);
+?>
 <?php include('config/header.php')?>
 
-<body style="background-image: url('icon/fondo_5.jpg') ;
-	background-position: center;
-  	background-repeat: no-repeat;
-  	background-size: cover;	
-  	background-position-y: center;
-  	height: 890px;
-    width: 100%;
-
-
-		">
+<body <?php include('config/body.php')?> >
 <?php include('navbar.php');?>
 
 
@@ -37,40 +45,40 @@
 </div>
 <div class="grid-container">
     <div class="grid-container-botones">
-<a href="area.php?Lugar=C1" class="botones">C1</a>
-<a href="area.php?Lugar=C8" class="botones">C8</a>
-<a href="area.php?Lugar=Celda7" class="botones">Celda7</a>
-<a href="area.php?Lugar=C2" class="botones">C2</a>
-<a href="area.php?Lugar=C3"  class="botones">C3</a>
-<a href="area.php?Lugar=C4"  class="botones">C4</a>
-<a href="area.php?Lugar=Celda_PCS" class="botones">Celda PCS</a>
+<a href="area.php?Lugar=C1" class="botones" style="background-color:<?php echo ($data2[0]['Color']);?>;">C1</a>
+<a href="area.php?Lugar=C8" class="botones" style="background-color:<?php echo ($data2[1]['Color']);?>;">C8</a>
+<a href="area.php?Lugar=Celda7" class="botones" style="background-color:<?php echo ($data2[2]['Color']);?>;">Celda7</a>
+<a href="area.php?Lugar=C2" class="botones" style="background-color:<?php echo ($data2[3]['Color']);?>;">C2</a>
+<a href="area.php?Lugar=C3"  class="botones" style="background-color:<?php echo ($data2[4]['Color']);?>;">C3</a>
+<a href="area.php?Lugar=C4"  class="botones" style="background-color:<?php echo ($data2[5]['Color']);?>;">C4</a>
+<a href="area.php?Lugar=Celda_PCS" class="botones" style="background-color:<?php echo ($data2[6]['Color']);?>;">Celda PCS</a>
     </div>
     <div class="grid-container-botones">
-<a href="area.php?Lugar=XFMR_Switcher" class="botones">XFMR Switcher</a>
-<a href="area.php?Lugar=SMT" class="botones">SMT</a>
-<a href="area.php?Lugar=Preparacion" class="botones">Preparacion</a>
-<a href="area.php?Lugar=Cables" class="botones">Cables</a>
-<a href="area.php?Lugar=Chassis" class="botones">Chassis</a>
-<a href="area.php?Lugar=BURN_IN" class="botones">BURN IN</a>
-<a href="area.php?Lugar=XFMR_Toroides_Lineales" class="botones">XFMR Toroides/Lineales</a>
+<a href="area.php?Lugar=XFMR_Switcher" class="botones" style="background-color:<?php echo ($data2[7]['Color']);?>;">XFMR Switcher</a>
+<a href="area.php?Lugar=SMT" class="botones" style="background-color:<?php echo ($data2[8]['Color']);?>;">SMT</a>
+<a href="area.php?Lugar=Preparacion" class="botones" style="background-color:<?php echo ($data2[9]['Color']);?>;">Preparacion</a>
+<a href="area.php?Lugar=Cables" class="botones" style="background-color:<?php echo ($data2[10]['Color']);?>;">Cables</a>
+<a href="area.php?Lugar=Chassis" class="botones" style="background-color:<?php echo ($data2[11]['Color']);?>;">Chassis</a>
+<a href="area.php?Lugar=BURN_IN" class="botones" style="background-color:<?php echo ($data2[12]['Color']);?>;">BURN IN</a>
+<a href="area.php?Lugar=XFMR_Toroides_Lineales" class="botones" style="background-color:<?php echo ($data2[13]['Color']);?>;">XFMR Toroides/Lineales</a>
     </div>
     <div class="grid-container-botones">
-<a href="area.php?Lugar=IQC" class="botones">IQC</a>
-<a href="area.php?Lugar=Almacen" class="botones">Almacen</a>
-<a href="area.php?Lugar=Quimicos" class="botones">Quimicos</a>
-<a href="area.php?Lugar=Ingenieria" class="botones">Ingenieria</a>
-<a href="area.php?Lugar=Mantenimiento" class="botones">Mantenimiento</a>
-<a href="area.php?Lugar=RMA" class="botones">RMA</a>
+<a href="area.php?Lugar=IQC" class="botones" style="background-color:<?php echo ($data2[14]['Color']);?>;">IQC</a>
+<a href="area.php?Lugar=Almacen" class="botones" style="background-color:<?php echo ($data2[15]['Color']);?>;">Almacen</a>
+<a href="area.php?Lugar=Quimicos" class="botones" style="background-color:<?php echo ($data2[16]['Color']);?>;">Quimicos</a>
+<a href="area.php?Lugar=Ingenieria" class="botones" style="background-color:<?php echo ($data2[17]['Color']);?>;">Ingenieria</a>
+<a href="area.php?Lugar=Mantenimiento" class="botones" style="background-color:<?php echo ($data2[18]['Color']);?>;">Mantenimiento</a>
+<a href="area.php?Lugar=RMA" class="botones"style="background-color:<?php echo ($data2[19]['Color']);?>;">RMA</a>
     </div>
     <div class="grid-container-botones">
-<a href="area.php?Lugar=Patios_David" class="botones">Patios<br>David A</a>
-<a href="area.php?Lugar=Patio_Jardin" class="botones">Patio Jardin<br>Monica M</a>
-<a href="area.php?Lugar=Patios_Frontal_Manuel" class="botones">Patios Frontal<br>Manuel S</a>
-<a href="area.php?Lugar=Patios_Rampas_Gerardo" class="botones">Patios Rampas<br>Gerardo M</a>
-<a href="area.php?Lugar=Patio_Pasillo_Acceso" class="botones">Patio Pasillos Acceso<br>Laterla Jesus D</a>
-<a href="area.php?Lugar=Patio_Estacionamientos" class="botones">Patio Estacionamientos<br>Marco H</a>
-<a href="area.php?Lugar=Patios_Miguel" class="botones">Patios<br>Miguel M</a>
-<a href="area.php?Lugar=Patios_Rampas_Loreley" class="botones">Patios Rampas<br>Loreley B</a>
+<a href="area.php?Lugar=Patios_David" class="botones" style="background-color:<?php echo ($data2[20]['Color']);?>;">Patios<br>David A</a>
+<a href="area.php?Lugar=Patio_Jardin" class="botones" style="background-color:<?php echo ($data2[21]['Color']);?>;">Patio Jardin<br>Monica M</a>
+<a href="area.php?Lugar=Patios_Frontal_Manuel" class="botones" style="background-color:<?php echo ($data2[22]['Color']);?>;">Patios Frontal<br>Manuel S</a>
+<a href="area.php?Lugar=Patios_Rampas_Gerardo" class="botones" style="background-color:<?php echo ($data2[23]['Color']);?>;">Patios Rampas<br>Gerardo M</a>
+<a href="area.php?Lugar=Patio_Pasillo_Acceso" class="botones" style="background-color:<?php echo ($data2[24]['Color']);?>;">Patio Pasillos Acceso<br>Laterla Jesus D</a>
+<a href="area.php?Lugar=Patio_Estacionamientos" class="botones" style="background-color:<?php echo ($data2[25]['Color']);?>;">Patio Estacionamientos<br>Marco H</a>
+<a href="area.php?Lugar=Patios_Miguel" class="botones" style="background-color:<?php echo ($data2[26]['Color']);?>;">Patios<br>Miguel M</a>
+<a href="area.php?Lugar=Patios_Rampas_Loreley" class="botones" style="background-color:<?php echo ($data2[27]['Color']);?>;">Patios Rampas<br>Loreley B</a>
     </div>
 </div>
 </div>
@@ -80,8 +88,8 @@
 <?php include('config/footer.php')?>
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-<script type="text/javascript" src="js/chart.js"></script>
-<script type="text/javascript" src="js/chart1.php"></script>
+<!-- <script type="text/javascript" src="js/chart.js"></script> -->
+<!-- <script type="text/javascript" src="js/chart1.php"></script> -->
 <script>
 const canvas = document.getElementById("cinco-s");
 const ctx = canvas.getContext("2d");

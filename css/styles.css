@@ -134,16 +134,24 @@ table, td, th {
 	border-radius: 10px;
 }
 body{
-/*	background-color: white;*/
 	font-family: sans-serif;
 	text-align: center;
 	color: white;
 	font-size: 24px;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	zoom: 95%;
 }
 
+.body-all{
+	background-image: url('icon/fondo_6.png') ;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;	
+	background-position-y: center;
+	height: 890px;
+  width: 100%;
+}
 .Opiciones{
 	padding: 1em;
 	margin: 3px;
@@ -226,7 +234,7 @@ body{
 }
 
 .botones {
-  background-color: #325175 ;
+  background-color: #3c85c6 ;
   border: none;
   color: white;
   padding: 5px 5px;

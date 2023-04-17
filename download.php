@@ -2,14 +2,7 @@
 <?php include('config/download.php')?>
 <?php include('config/header.php')?>
 
-<body style="background-image: url('icon/fondo_5.jpg') ;
-	background-position: center;
-  	background-repeat: no-repeat;
-  	background-size: cover;	
-  	background-position-y: center;
-  	  	height: 890px;
-    width: 100%;
-		">
+<body <?php include('config/body.php')?> >
 <?php include('navbar.php');?>
 <div class="main">
 <aside class="left_general">

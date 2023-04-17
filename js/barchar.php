@@ -44,7 +44,7 @@ for ($i=0; $i <= 27; $i++) {
 }
 }
 
-echo json_encode($data2);
+// echo json_encode($data2);
 
 // para sacar los valores de lo que dio de resultado el query al igual que los otros for de abajo 
 for ($i=0; $i <= 27; $i++){
@@ -89,8 +89,9 @@ for ($i=0; $i <= 2; $i++){
 ?>
 
 // para crear la grafica que se muestra 
-  const ctx1 = document.getElementById('grafica1');
-  const grafica1 = new Chart(ctx1, {
+var canvasP = document.getElementById("pieChart");
+var ctxP = canvasP.getContext('2d');
+var myPieChart = new Chart(ctxP, {
     type: 'bar',
     data: {
       labels: <?php echo json_encode($areas_grafica); ?>,
@@ -138,8 +139,28 @@ for ($i=0; $i <= 2; $i++){
     }
   });
 
-  const ctx2 = document.getElementById('grafica2');
-  const grafica2 = new Chart(ctx2, {
+canvasP.onclick = function(e) {
+   var slice = myPieChart.getElementAtEvent(e);
+   if (!slice.length) return; // return if not clicked on slice
+   var label = slice[0]._model.label;
+   switch (label) {
+      // add case for each label/slice
+      case 'C1':
+         // alert('clicked on slice 5');
+         window.open('http://10.32.72.171/advance/',"_self");
+         break;
+      case 'Värde 6':
+         // alert('clicked on slice 6');
+         window.open('www.example.com/bar');
+         break;
+      // add rests ...
+   }
+}
+
+
+
+  var ctx2 = document.getElementById('grafica2');
+  var grafica2 = new Chart(ctx2, {
     type: 'bar',
     data: {
       labels: <?php echo json_encode($areas_grafica_2); ?>,
@@ -178,8 +199,8 @@ for ($i=0; $i <= 2; $i++){
     }
   });
 
-  const ctx3 = document.getElementById('grafica3');
-  const grafica3 = new Chart(ctx3, {
+  var ctx3 = document.getElementById('grafica3');
+  var grafica3 = new Chart(ctx3, {
     type: 'bar',
     data: {
       labels: <?php echo json_encode($areas_grafica_3); ?>,
@@ -218,8 +239,8 @@ for ($i=0; $i <= 2; $i++){
     }
   });
 
-  const ctx4 = document.getElementById('grafica4');
-  const grafica4 = new Chart(ctx4, {
+  var ctx4 = document.getElementById('grafica4');
+  var grafica4 = new Chart(ctx4, {
     type: 'bar',
     data: {
       labels: ['Despejar','Organizar','Limpiar','Estandarizar','Disciplina','Seguridad'],

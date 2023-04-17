@@ -76,14 +76,7 @@ return $msg;
         alert('Este registro ya esta agreago por esta semana');
     }
     </script>
-<body style="background-image: url('icon/fondo_5.jpg') ;
-  background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position-y: center;
-    height: 890px;
-    width: 100%;
-  ">
+<body <?php include('config/body.php')?> >
 <?php include('navbar.php') ?>
 <?php if($cosa=='pelas'){
   echo '<script>
