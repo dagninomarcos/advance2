@@ -5,5 +5,5 @@ define('ROOT_LLENAR_DATA','http://'.$host_direccion.'/sandbox/advance/form_data.
 define('ROOT_GENERAL','http://'.$host_direccion.'/sandbox/advance/general.php');
 define('ROOT_DOWNLOAD','http://'.$host_direccion.'/sandbox/advance/download.php');
 define('ROOT_EVALUACION','http://'.$host_direccion.'/sandbox/advance/evaluacion.php');
-
+define('ROOT_ANUAL','http://'.$host_direccion.'/sandbox/advance/anual.php')
 ?>

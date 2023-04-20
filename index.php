@@ -75,7 +75,7 @@ mysqli_close($mysqli);
 <a href="area.php?Lugar=Patio_Jardin" class="botones" style="background-color:<?php echo ($data2[21]['Color']);?>;">Patio Jardin<br>Monica M</a>
 <a href="area.php?Lugar=Patios_Frontal_Manuel" class="botones" style="background-color:<?php echo ($data2[22]['Color']);?>;">Patios Frontal<br>Manuel S</a>
 <a href="area.php?Lugar=Patios_Rampas_Gerardo" class="botones" style="background-color:<?php echo ($data2[23]['Color']);?>;">Patios Rampas<br>Gerardo M</a>
-<a href="area.php?Lugar=Patio_Pasillo_Acceso" class="botones" style="background-color:<?php echo ($data2[24]['Color']);?>;">Patio Pasillos Acceso<br>Laterla Jesus D</a>
+<a href="area.php?Lugar=Patio_Pasillo_Acceso" class="botones" style="background-color:<?php echo ($data2[24]['Color']);?>;">Patio Pasillos Acceso<br>Lateral Jesus D</a>
 <a href="area.php?Lugar=Patio_Estacionamientos" class="botones" style="background-color:<?php echo ($data2[25]['Color']);?>;">Patio Estacionamientos<br>Marco H</a>
 <a href="area.php?Lugar=Patios_Miguel" class="botones" style="background-color:<?php echo ($data2[26]['Color']);?>;">Patios<br>Miguel M</a>
 <a href="area.php?Lugar=Patios_Rampas_Loreley" class="botones" style="background-color:<?php echo ($data2[27]['Color']);?>;">Patios Rampas<br>Loreley B</a>

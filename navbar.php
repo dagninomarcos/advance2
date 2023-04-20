@@ -11,6 +11,7 @@
           <li><a href="<?php echo ROOT_LLENAR_DATA; ?>" class="nav-link px-2 text-white" style="font-size: 20px;">Formato Calificaciones</a></li>
           <li><a href="<?php echo ROOT_DOWNLOAD; ?>" class="nav-link px-2 text-white" style="font-size: 20px;">Download Info</a></li>
           <li><a href="<?php echo ROOT_EVALUACION; ?>" class="nav-link px-2 text-white" style="font-size: 20px;">Evaluacion</a></li>
+          <li><a href="<?php echo ROOT_ANUAL; ?>" class="nav-link px-2 text-white" style="font-size: 20px;">Anual</a></li>
           <!-- <li><a href="#" class="nav-link px-2 text-white">ALV</a></li> -->
         </ul>
       </div>

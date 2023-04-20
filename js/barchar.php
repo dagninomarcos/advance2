@@ -89,9 +89,8 @@ for ($i=0; $i <= 2; $i++){
 ?>
 
 // para crear la grafica que se muestra 
-var canvasP = document.getElementById("pieChart");
-var ctxP = canvasP.getContext('2d');
-var myPieChart = new Chart(ctxP, {
+var ctx1 = document.getElementById('grafica1');
+  var grafica1 = new Chart(ctx1, {
     type: 'bar',
     data: {
       labels: <?php echo json_encode($areas_grafica); ?>,
@@ -138,26 +137,60 @@ var myPieChart = new Chart(ctxP, {
         }
     }
   });
+console.log(grafica1)
+function cliclableScales(canvas,click){
+const link ='area.php?Lugar=';
+const height = grafica1.scales.x.height
+const areas=(<?php echo json_encode($areas_grafica); ?>)
+const top = grafica1.chartArea.top
+const bottom = grafica1.scales.x.bottom
+const left = grafica1.scales.x.left // correcto
+const right =(((grafica1.scales.x.maxWidth-(grafica1.scales.x.left + grafica1.scales.x.paddingLeft))-grafica1.scales.x.paddingLeft) / grafica1.scales.x.ticks.length)// correcto
+const left2 = right - ((grafica1.scales.x.left - grafica1.scales.x.paddingLeft)*2)
+const right2 = left + left2
+    // console.log(height)
+    // console.log(top)
+    // console.log(bottom)
+    // console.log(left)
+    // console.log(right)
+    // console.log(left2)
+    // console.log(right2)
+  //console.log(canvas)
+  //console.log(click)
+  let resetCoordinates = canvas.getBoundingClientRect()
+  //console.log(resetCoordinates)
+  const x=click.clientX - resetCoordinates.left;
+  const y=click.clientY - resetCoordinates.top;
+  // console.log(x)
+  // console.log(y)
+  // console.log(grafica1.scales.x.ticks.length)
+  //  console.log(grafica1.scales.x.maxWidth)
+// for (let i=0; i < grafica1.scales.x.ticks.length ; i++) {
+//   if (x>= left + (right*i) && x<= right + (right*i ) && y >= top && y<= bottom)  {
 
-canvasP.onclick = function(e) {
-   var slice = myPieChart.getElementAtEvent(e);
-   if (!slice.length) return; // return if not clicked on slice
-   var label = slice[0]._model.label;
-   switch (label) {
-      // add case for each label/slice
-      case 'C1':
-         // alert('clicked on slice 5');
-         window.open('http://10.32.72.171/advance/',"_self");
-         break;
-      case 'Värde 6':
-         // alert('clicked on slice 6');
-         window.open('www.example.com/bar');
-         break;
-      // add rests ...
-   }
+//     console.log(i)
+
+//   }
+// }
+
+  for (let i=0; i < grafica1.scales.x.ticks.length ; i++) {
+  if (x>= left2 +(right*i) && x<= right2 +(right*i) && y >= top && y<= bottom)  {
+
+  console.log(link.concat(areas[i]));
+if (areas[i]=='NA'){
+
+}else{
+   location.href= link.concat(areas[i]);
+
+}
+  }
 }
 
+}
 
+ctx1.addEventListener('click',(e) => {
+  cliclableScales(ctx1,e)
+})
 
   var ctx2 = document.getElementById('grafica2');
   var grafica2 = new Chart(ctx2, {
