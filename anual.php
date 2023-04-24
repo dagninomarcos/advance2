@@ -2,7 +2,7 @@
 <?php include('config/db.php') ?>
 <?php
 $fecha_sistema=date("Y-m-d");
-$query ="CALL Anual();";
+$query ="Call Anual();";
 
 // ejectuar el query 
 $result = mysqli_query($mysqli, $query);

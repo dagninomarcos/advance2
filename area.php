@@ -7,6 +7,32 @@
 	// $month= date("F", strtotime('m'));?>
 
 <?php include('config/header.php')?>
+<style>
+	table {
+  table-layout: flex;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid black;
+   border-spacing: 1px;
+}
+
+
+
+th,td {
+  padding: 2px;
+  
+
+}
+.cell_S1Q1:hover {
+  background-color: #ddd;
+}
+
+.mi-clase{
+	border: 3px solid black;
+	text-align: center;
+}
+
+</style>
 <body <?php include('config/body.php')?> >
 <?php include('navbar.php');?>
 

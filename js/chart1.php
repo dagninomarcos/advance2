@@ -90,6 +90,10 @@ for ($i=0; $i <= 5; $i++) {
 ?>
 
 
+
+
+
+
 const ctx = document.getElementById('grafica1');
 
  const grafica1 = new Chart(ctx, {
@@ -355,4 +359,136 @@ ctx7.lineWidth = 30 ;
 ctx7.strokeText("S",440,550,400);
 ctx7.fillStyle = 'white';
 ctx7.fillText("S",440,550,400);
+
+
+ function cliclableScales(Area_Seleccionada_OK,Semana_Seleccionada){
+
+  // Crear un div para el pop-up
+
+  const popup = document.createElement('div');
+  popup.style.position = 'absolute';
+  popup.style.top = '50%';
+  popup.style.left = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.padding = '1px';
+  popup.style.background = '#fff';
+  popup.style.border = '1px solid #000';
+  popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+  popup.style.zIndex = '999';
+  popup.style.width = 'auto'; // Ajustar el ancho del pop-up
+  popup.style.height = 'auto'; // Altura automática
+
+
+
+  // Crear una tabla y agregar filas y columnas
+  const table = document.createElement('table');
+  const headerRow = table.insertRow();
+  const headerCell1 = headerRow.insertCell();
+  const headerCell2 = headerRow.insertCell();
+  const headerCell3 = headerRow.insertCell();
+  const headerCell4 = headerRow.insertCell();
+  headerCell1.textContent = 'No_Pregunta';
+  headerCell1.classList.add("mi-clase");
+  headerCell2.textContent = 'Comentario';
+  headerCell2.classList.add("mi-clase");
+  headerCell3.textContent = 'No_Pregunta';
+  headerCell3.classList.add("mi-clase");
+  headerCell4.textContent = 'Comentario';
+  headerCell4.classList.add("mi-clase");
+
+// Obtener los datos de la base de datos utilizando una petición AJAX
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'datos.php?Area='+Area_Seleccionada_OK+'&semana='+Semana_Seleccionada); 
+// Ruta al archivo PHP que obtiene los datos de la base de datos
+xhr.onreadystatechange = function() {
+  if (this.readyState === 4 && this.status === 200) {
+    const data = JSON.parse(this.responseText);
+    const halfLength = Math.ceil(data.length / 2); // Obtener la mitad de la longitud del array
+    const firstHalf = data.splice(0, halfLength); // Obtener la primera mitad del array
+    const secondHalf = data; // La segunda mitad son los elementos que quedan en el array
+    firstHalf.forEach((item, index) => {
+      const dataRow = table.insertRow();
+      const dataCell1 = dataRow.insertCell();
+      dataCell1.addEventListener("mouseover", () => {
+      dataCell1.title = "Mi texto";});
+      const dataCell2 = dataRow.insertCell();
+      const dataCell3 = dataRow.insertCell();
+      const dataCell4 = dataRow.insertCell();
+      dataCell1.textContent = item.No_pregunta;
+      dataCell1.classList.add("mi-clase");
+    dataCell1.addEventListener("mouseover", () => {
+    dataCell1.title = item.pregunta;
+      });
+      dataCell2.textContent = item.Comentario;
+      dataCell2.classList.add("mi-clase");
+      dataCell2.style.width = '150px'; // Establecer ancho para la celda dataCell2
+      dataCell3.textContent = '';
+      dataCell4.textContent = '';
+      // Insertar la segunda mitad en las celdas 3 y 4
+      if (index < secondHalf.length) {
+        const secondHalfItem = secondHalf[index];
+        dataCell3.textContent = secondHalfItem.No_pregunta;
+        dataCell3.classList.add("mi-clase");
+        dataCell3.addEventListener("mouseover", () => {
+        dataCell3.title = item.pregunta;
+      });
+        dataCell4.textContent = secondHalfItem.Comentario;
+        dataCell4.classList.add("mi-clase");
+        dataCell4.style.width = '150px'; // Establecer ancho para la celda dataCell3
+      }
+    });
+  }
+};
+xhr.send();
+
+  popup.appendChild(table);
+
+  // Agregar el botón "Cerrar" al pop-up
+  const closeBtnContainer = document.createElement('div');
+  closeBtnContainer.className = 'closeBtnContainer';
+  const closeBtn = document.createElement('button');
+  closeBtn.textContent = 'Cerrar';
+  closeBtn.text_aligh = 'Center';
+  closeBtn.style.width = '200px';
+  closeBtn.addEventListener('click', () => {
+    popup.remove(); // Eliminar el pop-up del DOM
+  });
+  popup.appendChild(closeBtn);
+
+  // Agregar el pop-up al body
+  document.body.appendChild(popup);
+}
+
+
+// Agregar un escuchador de eventos para el clic
+  ctx.addEventListener('click', () =>{
+    cliclableScales('<?php echo $Area_Seleccionada ?>',1);
+  },
+);
+
+
+// Agregar un escuchador de eventos para el clic
+  ctx2.addEventListener('click', () =>{
+    cliclableScales('<?php echo $Area_Seleccionada ?>',2);
+  },
+);
+
+  // Agregar un escuchador de eventos para el clic
+  ctx3.addEventListener('click', () =>{
+    cliclableScales('<?php echo $Area_Seleccionada ?>',3);
+  },
+);
+
+  // Agregar un escuchador de eventos para el clic
+  ctx4.addEventListener('click', () =>{
+    cliclableScales('<?php echo $Area_Seleccionada ?>',4);
+  },
+);
+
+
+// Agregar un escuchador de eventos para el clic
+  ctx5.addEventListener('click', () =>{
+    cliclableScales('<?php echo $Area_Seleccionada ?>',5);
+  },
+);
 </script>

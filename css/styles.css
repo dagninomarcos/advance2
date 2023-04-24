@@ -373,6 +373,13 @@ footer{
 		padding: 0em 0 5em 0;
 		margin: 1px;
 	}
+
+	.stilo-preguntas{
+	text-align: center;
+	font-family: arial black;
+	font-size: 13px;
+	width: 240px;
+}
 }
 
 
