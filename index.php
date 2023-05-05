@@ -3,7 +3,7 @@
 <?php
 $fecha_sistema=date("Y-m-d");
 $query ="CALL Colores('$fecha_sistema');";
-//marcos dagnino estuvo aqui
+//marcos dagnino estuvo aqui otra vez
 // ejectuar el query 
 $result = mysqli_query($mysqli, $query);
 
