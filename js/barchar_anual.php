@@ -23,16 +23,16 @@ mysqli_close($mysqli);
 
 
 
-for ($i=0; $i <= 27; $i++) { 
+for ($i=0; $i <= 28; $i++) { 
   if (empty($data2[$i])) {
   $data2[$i]=array('Area'=>'NA','total'=>0);
 }}
 
-for ($i=0; $i <= 27; $i++){
+for ($i=0; $i <= 28; $i++){
   $areas_grafica[$i]=($data2[$i]['Area']);
 }
 
-for ($i=0; $i <= 27; $i++){
+for ($i=0; $i <= 28; $i++){
   $valores_grafica_ok[$i]=($data2[$i]['total']);
 }
 

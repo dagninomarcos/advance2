@@ -8,6 +8,7 @@ include('config/db.php');
  if(isset($_GET['submite'])){
  	$Fecha=$_GET['Fecha'];
 	$Auditor=$_GET['Auditor'];
+  $Auditado=$_GET['Auditado'];
 	$Area=$_GET['Area'];
 	$C_Despejado=$_GET['Despejar'];
 	$C_Organizar=$_GET['Organizar'];
@@ -22,7 +23,7 @@ $existe=mysqli_fetch_all($array_existe,MYSQLI_NUM);
 mysqli_free_result($array_existe);
 
 if (empty($existe[0])) {
-$query="INSERT INTO `test_data_5s` (`Fecha`, `Auditor`, `Area`, `C_Despejar`, `C_Organizar`, `C_Limpiar`, `C_Estandarizar`, `C_Disciplina`, `C_Seguridad`) VALUES ('$Fecha', '$Auditor', '$Area', '$C_Despejado', '$C_Organizar', '$C_Limpiar', '$C_Estandarizar', '$C_Disciplina', '$C_Seguridad')";
+$query="INSERT INTO `test_data_5s` (`Fecha`, `Auditor`,`Auditado`, `Area`, `C_Despejar`, `C_Organizar`, `C_Limpiar`, `C_Estandarizar`, `C_Disciplina`, `C_Seguridad`) VALUES ('$Fecha', '$Auditor','$Auditado', '$Area', '$C_Despejado', '$C_Organizar', '$C_Limpiar', '$C_Estandarizar', '$C_Disciplina', '$C_Seguridad')";
 mysqli_query($mysqli,$query);
   }
   else{
@@ -38,7 +39,7 @@ mysqli_query($mysqli,$query);
 
 $db= $mysqli;
 $tableName="test_data_5s";
-$columns= ['id', 'Fecha','Auditor','Area','C_Despejar','C_Organizar', 'C_Limpiar','C_Estandarizar','C_Disciplina','C_Seguridad'];
+$columns= ['id', 'Fecha','Auditor','Auditado','Area','C_Despejar','C_Organizar', 'C_Limpiar','C_Estandarizar','C_Disciplina','C_Seguridad'];
 
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns){
@@ -122,6 +123,9 @@ return $msg;
     <option value="Estefania Peña">Estefania Peña</option>
 	</select>
 	<br></br>
+  <label class="letras_forma" for="Auditado">Auditado</label>
+ <input type="text" id="Auditado" name="Auditado" required> 
+ <br></br>
 <!-- Seleccionar las calificaciones de cada 5s -->
 <div class="container_calificaciones">
 	<label class="letras_forma" for="Despejar">Despejar</label>
@@ -164,6 +168,7 @@ return $msg;
          <th>id</th>
          <th>Fecha</th>
          <th>Auditor</th>
+         <th>Auditado</th>
          <th>Area</th>
          <th>C_Despejar</th>
          <th>C_Organizar</th>
@@ -183,6 +188,7 @@ return $msg;
       <td><?php echo $data['id']??''; ?></td>
       <td><?php echo $data['Fecha']??''; ?></td>
       <td><?php echo $data['Auditor']??''; ?></td>
+      <td><?php echo $data['Auditado']??''; ?></td>
       <td><?php echo $data['Area']??''; ?></td>
       <td><?php echo $data['C_Despejar']??''; ?></td>
       <td><?php echo $data['C_Organizar']??''; ?></td>
@@ -207,7 +213,7 @@ return $msg;
 </div>
 </div>
 </main>
-<aside class="right">
+<aside class="right" style="margin:-20px;" >
 	
 </aside>
 	</div>
